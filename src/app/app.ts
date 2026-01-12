@@ -1,5 +1,11 @@
 import { CommonModule, Location } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Shapes } from './shapes/shapes';
 
@@ -7,7 +13,7 @@ import { Shapes } from './shapes/shapes';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, Shapes],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App implements OnInit, AfterViewInit {
   protected title = 'Portfolio';
@@ -34,7 +40,7 @@ export class App implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        this.techs.forEach(t => (this.animateSkill[t.title] = t.skill));
+        this.techs.forEach((t) => (this.animateSkill[t.title] = t.skill));
       });
     });
     // keep your behavior (small delay) but make it safe + rebuild on resize
@@ -52,26 +58,16 @@ export class App implements OnInit, AfterViewInit {
     this.active = location.hash.replace('#', '') || '';
   }
 
-   techs: Tech[] = [
+  techs: Tech[] = [
     { title: 'Angular', skill: 75, pic: 'assets/angular-logo.png' },
     { title: 'TypeScript', skill: 70, pic: 'assets/ts.png' },
     { title: 'JavaScript', skill: 75, pic: 'assets/javascript.png' },
     { title: 'HTML', skill: 85, pic: 'assets/html.png' },
     { title: 'CSS', skill: 80, pic: 'assets/css.png' },
-    { title: 'Tailwind', skill: 70, pic: 'assets/tailwind.png' },
+    { title: 'Tailwind', skill: 20, pic: 'assets/tailwind.png' },
   ];
 
   projects: Project[] = [
-    {
-      title: 'Book Shop',
-      year: '2025',
-      description:
-        'A responsive book shop UI with product listing, search, cart interactions, and clean component structure.',
-      image: 'assets/bookshop.png',
-      techs: ['Angular', 'TypeScript', 'Tailwind', 'REST API'],
-      codeUrl: 'https://github.com/yourname/book-shop',
-      liveUrl: 'https://your-live-demo.com',
-    },
     {
       title: 'Library Management',
       year: '2025',
@@ -79,8 +75,38 @@ export class App implements OnInit, AfterViewInit {
         'Library dashboard with member history, borrowing status, and admin tools. Built with reusable Angular components.',
       image: 'assets/library.png',
       techs: ['Angular', 'TypeScript', 'CSS', 'Node API'],
-      codeUrl: 'https://github.com/yourname/library-management',
-      liveUrl: 'https://your-live-demo.com',
+      codeUrl: 'https://github.com/sokhaimeach/Library_Management_Dashboard',
+      liveUrl: 'https://library-management-dashboard-six.vercel.app/',
+    },
+    {
+      title: 'Book Shop',
+      year: '2025',
+      description:
+        'A responsive book shop UI with product listing, search, cart interactions, and clean component structure.',
+      image: 'assets/bookshop.png',
+      techs: ['Angular', 'TypeScript', 'Tailwind', 'ASP.NET API'],
+      codeUrl: 'https://github.com/sokhaimeach/BooksShop',
+      liveUrl: '',
+    },
+    {
+      title: 'Clothe Shop',
+      year: '2025',
+      description:
+        'A responsive clothing shop web app with product listing, category filtering, and a clean UI layout. Built with reusable Angular components and Bootstrap styling for a smooth shopping experience.',
+      image: 'assets/clotheshop.png',
+      techs: ['Angular', 'TypeScript', 'Bootstrap'],
+      codeUrl: 'https://github.com/sokhaimeach/ClotheShop',
+      liveUrl: 'https://clothe-shop-delta.vercel.app/',
+    },
+    {
+      title: 'Coffee Management',
+      year: '2025',
+      description:
+        'A coffee shop management system for tracking menu items and orders with an admin-friendly dashboard. Uses Angular + Tailwind on the front end and connects to an ASP.NET API for data and operations.',
+      image: 'assets/coffee.png',
+      techs: ['Angular', 'TypeScript', 'Tailwind', 'ASP.NET API'],
+      codeUrl: 'https://github.com/sokhaimeach/CafeManagementSystem',
+      liveUrl: '',
     },
   ];
 
@@ -204,7 +230,6 @@ export class App implements OnInit, AfterViewInit {
     el.innerHTML = col;
   }
 }
-
 
 interface Tech {
   title: string;
