@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --bg-color: #f8f7f1;
+}
+
+html {
+    scroll-behavior: smooth;
+}

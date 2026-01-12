@@ -1,4 +1,31 @@
-# Portfolio
+# sokhai.dev — Portfolio (Angular + Tailwind)
+
+A clean and interactive personal portfolio built with **Angular** and **Tailwind CSS**, featuring a responsive layout, project showcase, and a fun **mouse-move grid pattern** effect.
+
+---
+
+## ✨ Features
+
+- **Responsive UI** (mobile → desktop)
+- **Sticky Navbar** with active section highlight
+- **Hero / About / Projects / Contact** sections
+- **Tech Stack** progress bars (supports animated fill)
+- **Projects** list/cards with links (Code / Live Demo)
+- **Interactive Background Pattern**
+  - Generates a grid dynamically based on screen size
+  - Highlights blocks on mouse move
+- **Pixel Heart** generated dynamically with TypeScript
+
+---
+
+## 🛠 Tech Stack
+
+- **Angular** (Standalone components or normal module setup)
+- **TypeScript**
+- **Tailwind CSS**
+- (Optional) **Bootstrap Icons** for icons
+
+---
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.0.
 
