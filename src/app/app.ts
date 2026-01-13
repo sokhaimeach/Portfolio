@@ -128,10 +128,9 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     this.ticking = true;
 
     requestAnimationFrame(() => {
-      // ✅ fix: ensure Angular detects changes even without mousemove
       this.zone.run(() => {
         this.updateActiveByScroll();
-        this.cdr.markForCheck(); // or detectChanges() if you want immediate sync
+        this.cdr.markForCheck();
       });
 
       this.ticking = false;
