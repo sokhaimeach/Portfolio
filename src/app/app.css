@@ -7,6 +7,35 @@
     color: oklch(70.7% 0.165 254.624) !important;
 }
 
+.actives {
+    background-color: oklch(70.7% 0.165 254.624);
+    opacity: 75%;
+}
+
+.navbar {
+    display: flex !important;
+}
+
+.mobile-nav {
+    display: none !important;
+}
+
+.footer {
+    margin-bottom: 0;
+}
+
+@media (max-width: 490px) {
+    .navbar {
+        display: none !important;
+    }
+    .mobile-nav {
+        display: flex !important;
+    }
+    .footer {
+        margin-bottom: 56px !important;
+    }
+}
+
 .typewriter {
   display: inline-block;
   border-right: 2px solid currentColor;
