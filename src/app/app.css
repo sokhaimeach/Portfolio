@@ -13,18 +13,9 @@
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 1.4s steps(10,end) forwards, blink .8s infinite;
+  animation: typing 1.4s steps(10,end) 1.3s forwards, blink .8s infinite;
   
 }
 @keyframes typing { to { width: 9ch; } }
 @keyframes blink { 50% { border-color: transparent; } }
 
-
-/* .animate-skill {
-    animation: animate-skills 1.2s ease forwards;
-} */
-
-/* @keyframes animate-skills {
-    from { width: 0;}
-    to { width: fit-content;}
-} */
