@@ -1,0 +1,95 @@
+<section id="contact" class="relative px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+  <app-section-header eyebrow="Contact" title="Get in touch"
+    subtitle="Interested in connecting, collaborating, or discussing junior developer opportunities? Feel free to reach out." />
+
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr]">
+    <!-- Contact info -->
+    <div class="flex flex-col gap-4">
+      @for (c of infoCards; track c.label; let i = $index) {
+      <div appReveal="right" [revealDelay]="i * 100"
+        class="flex items-center gap-4 rounded-2xl border border-border bg-surface/60 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-card">
+        <div
+          class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 text-lg text-primary">
+          <i class="bi {{ c.icon }}" aria-hidden="true"></i>
+        </div>
+        <div class="min-w-0">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-muted">{{ c.label }}</h3>
+          <p class="truncate font-semibold text-text">{{ c.value }}</p>
+        </div>
+      </div>
+      }
+
+      <div appReveal="right" [revealDelay]="300"
+        class="rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 p-5 backdrop-blur">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-muted">Follow me</h3>
+        <div class="mt-3 flex items-center gap-3">
+          @for (s of socials; track s.label) {
+          <a [href]="s.url" [attr.aria-label]="s.label" target="_blank" rel="noopener noreferrer"
+            class="flex size-10 items-center justify-center rounded-xl border border-border bg-surface/50 text-muted backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
+            <i class="bi {{ s.icon }}" aria-hidden="true"></i>
+          </a>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form appReveal="left" [revealDelay]="150" [formGroup]="form" (ngSubmit)="submit()" novalidate
+      class="rounded-2xl border border-border bg-surface/60 p-6 backdrop-blur sm:p-8">
+
+      @if (sent()) {
+      <div role="status"
+        class="mb-6 flex items-center gap-3 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-500">
+        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+        Thanks! Your email draft is ready — just hit send to reach me.
+      </div>
+      }
+
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div>
+          <label for="contact-name" class="mb-1.5 block text-sm font-medium text-text">Name</label>
+          <input id="contact-name" type="text" formControlName="name" autocomplete="name" placeholder="Your name"
+            class="w-full rounded-xl border border-border bg-elevated px-4 py-3 text-sm text-text placeholder:text-muted/60 transition-all duration-200 focus:border-primary/50 focus:bg-surface focus:ring-2 focus:ring-primary/20"
+            [class.border-red-400/60]="f.name.touched && f.name.invalid" />
+          @if (f.name.touched && f.name.invalid) {
+          <p id="contact-name-error" role="alert" class="mt-1.5 text-xs font-medium text-red-400">
+            Please enter your name.
+          </p>
+          }
+        </div>
+
+        <div>
+          <label for="contact-email" class="mb-1.5 block text-sm font-medium text-text">Email</label>
+          <input id="contact-email" type="email" formControlName="email" autocomplete="email" placeholder="you@example.com"
+            class="w-full rounded-xl border border-border bg-elevated px-4 py-3 text-sm text-text placeholder:text-muted/60 transition-all duration-200 focus:border-primary/50 focus:bg-surface focus:ring-2 focus:ring-primary/20"
+            [class.border-red-400/60]="f.email.touched && f.email.invalid" />
+          @if (f.email.touched && f.email.invalid) {
+          <p id="contact-email-error" role="alert" class="mt-1.5 text-xs font-medium text-red-400">
+            @if (f.email.errors?.['required']) { Please enter your email. }
+            @else { Please enter a valid email address. }
+          </p>
+          }
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <label for="contact-message" class="mb-1.5 block text-sm font-medium text-text">Message</label>
+        <textarea id="contact-message" formControlName="message" rows="5" placeholder="Tell me about your project..."
+          class="w-full resize-none rounded-xl border border-border bg-elevated px-4 py-3 text-sm text-text placeholder:text-muted/60 transition-all duration-200 focus:border-primary/50 focus:bg-surface focus:ring-2 focus:ring-primary/20"
+          [class.border-red-400/60]="f.message.touched && f.message.invalid"></textarea>
+        @if (f.message.touched && f.message.invalid) {
+        <p id="contact-message-error" role="alert" class="mt-1.5 text-xs font-medium text-red-400">
+          @if (f.message.errors?.['required']) { Please write a message. }
+          @else { Your message should be at least 10 characters. }
+        </p>
+        }
+      </div>
+
+      <button type="submit"
+        class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3.5 font-semibold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0">
+        <i class="bi bi-send-fill" aria-hidden="true"></i>
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>

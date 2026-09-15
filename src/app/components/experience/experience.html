@@ -1,0 +1,40 @@
+<section id="experience" class="relative px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+  <app-section-header eyebrow="Experience" title="Practical Experience"
+    subtitle="Hands-on experience gained through academic coursework, team collaboration, and personal projects." />
+
+  <ol class="relative mx-auto max-w-3xl space-y-8">
+    <div class="absolute bottom-6 left-[1.1rem] top-6 w-px bg-gradient-to-b from-primary/50 via-secondary/40 to-accent/50"
+      aria-hidden="true"></div>
+
+    @for (item of experience; track item.role; let i = $index) {
+    <li appReveal="up" [revealDelay]="i * 120" class="relative pl-14">
+      <span aria-hidden="true"
+        class="absolute left-0 top-1 flex size-[2.35rem] items-center justify-center rounded-full border border-border bg-surface text-primary shadow-glow">
+        <i class="bi bi-briefcase-fill"></i>
+      </span>
+
+      <article
+        class="rounded-2xl border border-border bg-surface/60 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-card">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h3 class="font-display text-lg font-bold tracking-tight text-text">{{ item.role }}</h3>
+          <span class="rounded-full border border-border bg-elevated px-3 py-1 text-xs font-medium text-muted">
+            {{ item.period }}
+          </span>
+        </div>
+
+        <p class="mt-1 text-sm font-semibold text-primary">{{ item.company }}</p>
+        <p class="mt-3 text-sm leading-relaxed text-muted">{{ item.summary }}</p>
+
+        <ul class="mt-4 space-y-2">
+          @for (h of item.highlights; track h) {
+          <li class="flex items-start gap-2 text-sm text-muted">
+            <i class="bi bi-check-circle-fill mt-0.5 text-accent" aria-hidden="true"></i>
+            <span>{{ h }}</span>
+          </li>
+          }
+        </ul>
+      </article>
+    </li>
+    }
+  </ol>
+</section>

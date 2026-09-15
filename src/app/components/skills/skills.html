@@ -1,0 +1,47 @@
+<section id="skills" class="relative px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+  <app-section-header eyebrow="Skills" title="Technical Skills"
+    subtitle="Technologies, frameworks, databases, and tools from my coursework and practical development." />
+
+  <div class="mx-auto max-w-6xl">
+    @for (cat of categories; track cat; let i = $index) {
+    <div appReveal="up" class="mt-14 flex items-center gap-3 first:mt-0">
+      <span
+        class="flex size-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 text-lg text-primary">
+        <i class="bi {{ categoryIcons[cat] }}" aria-hidden="true"></i>
+      </span>
+      <h3 class="font-display text-lg font-bold tracking-tight text-text sm:text-xl">{{ cat }}</h3>
+      <span class="h-px flex-1 bg-gradient-to-r from-border to-transparent" aria-hidden="true"></span>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      @for (s of skillsFor(cat); track s.title; let j = $index) {
+      <div appReveal="up" [revealDelay]="(i * 4 + j) * 60"
+        class="group rounded-2xl border border-border bg-surface/60 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-card">
+        <div class="flex items-center gap-3">
+          <div
+            class="flex size-11 shrink-0 items-center justify-center rounded-xl border border-border bg-elevated transition-colors duration-300 group-hover:border-primary/40">
+            @if (s.pic) {
+            <img [src]="s.pic" [alt]="s.title" loading="lazy" width="64" height="64"
+              class="size-7 object-contain" />
+            } @else {
+            <i class="bi {{ s.icon }} text-xl text-primary" aria-hidden="true"></i>
+            }
+          </div>
+
+          <div class="flex min-w-0 flex-1 items-center justify-between gap-2">
+            <h4 class="truncate font-semibold text-text">{{ s.title }}</h4>
+            <span class="text-xs font-bold text-primary">{{ s.level }}%</span>
+          </div>
+        </div>
+
+        <div class="mt-4 h-1.5 overflow-hidden rounded-full bg-elevated" role="progressbar"
+          [attr.aria-valuenow]="s.level" aria-valuemin="0" aria-valuemax="100" [attr.aria-label]="s.title + ' proficiency'">
+          <div appSkillBar [skillBar]="s.level" [skillDelay]="i * 150 + j * 80"
+            class="h-full rounded-full bg-gradient-to-r from-primary via-secondary to-accent"></div>
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</section>

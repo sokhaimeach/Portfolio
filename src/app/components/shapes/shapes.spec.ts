@@ -1,3 +1,4 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Shapes } from './shapes';
@@ -8,9 +9,9 @@ describe('Shapes', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Shapes]
-    })
-    .compileComponents();
+      imports: [Shapes],
+      providers: [provideZonelessChangeDetection()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Shapes);
     component = fixture.componentInstance;

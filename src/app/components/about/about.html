@@ -1,0 +1,58 @@
+<section id="about" class="relative px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+  <app-section-header eyebrow="About" title="Driven to build reliable software"
+    subtitle="A background summary of my studies, practical experience, and career aspirations." />
+
+  <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
+    <!-- Image -->
+    <div appReveal="right" class="relative mx-auto w-full max-w-lg">
+      <div class="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-primary/25 via-secondary/20 to-accent/25 blur-xl"
+        aria-hidden="true"></div>
+      <div class="relative overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-card">
+        <img src="assets/computer.jpg" alt="My development workspace" width="1200" height="675" loading="lazy"
+          class="aspect-video w-full object-cover transition-transform duration-700 hover:scale-105" />
+      </div>
+
+      <div
+        class="absolute -bottom-6 left-1/2 w-max -translate-x-1/2 rounded-2xl border border-border bg-surface px-5 py-3 text-center shadow-card backdrop-blur sm:left-auto sm:right-6 sm:translate-x-0">
+        <p class="font-display text-2xl font-bold leading-none text-gradient">4th Year</p>
+        <p class="mt-1 text-xs font-medium text-muted">SETEC Institute</p>
+      </div>
+    </div>
+
+    <!-- Copy -->
+    <div appReveal="left" [revealDelay]="150">
+      <h3 class="font-display text-2xl font-bold tracking-tight text-text sm:text-3xl">
+        Fourth-year MIS student & aspiring Web Developer
+      </h3>
+
+      <p class="mt-5 leading-relaxed text-muted">
+        I am a fourth-year student at SETEC Institute pursuing a Bachelor's Degree in Management Information Systems (MIS). I have a strong interest in programming and web development, with hands-on experience building real features, working with databases and REST APIs, and solving technical problems through academic and personal projects.
+      </p>
+      <p class="mt-3 leading-relaxed text-muted">
+        I am looking for opportunities to grow as a Web Developer / Junior Web Developer, gain professional experience, learn from experienced developers, and contribute to building reliable and user-friendly software.
+      </p>
+
+      <ul class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        @for (f of facts; track f.label) {
+        <li
+          class="flex items-center gap-3 rounded-xl border border-border bg-surface/50 px-4 py-3 backdrop-blur transition-colors duration-200 hover:border-primary/30">
+          <i class="bi {{ f.icon }} text-primary" aria-hidden="true"></i>
+          <div class="min-w-0">
+            <p class="text-xs text-muted">{{ f.label }}</p>
+            <p class="truncate text-sm font-semibold text-text">{{ f.value }}</p>
+          </div>
+        </li>
+        }
+      </ul>
+
+      <div class="mt-8 grid grid-cols-3 gap-4">
+        @for (s of stats; track s.label) {
+        <div class="rounded-xl border border-border bg-surface/50 px-3 py-4 text-center backdrop-blur">
+          <p class="font-display text-2xl font-bold text-primary sm:text-3xl">{{ s.value }}</p>
+          <p class="mt-1 text-xs text-muted">{{ s.label }}</p>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

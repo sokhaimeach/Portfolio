@@ -1,0 +1,92 @@
+<section id="home"
+  class="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8 lg:pb-24 lg:pt-16">
+  <!-- Left: copy -->
+  <div class="relative z-10">
+    <div appReveal="up"
+      class="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 text-xs font-medium text-muted backdrop-blur">
+      <span class="relative flex size-2" aria-hidden="true">
+        <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex size-2 rounded-full bg-emerald-400"></span>
+      </span>
+      Open to Junior Web Developer opportunities
+    </div>
+
+    <h1 appReveal="up" [revealDelay]="100"
+      class="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight text-text sm:text-6xl xl:text-7xl">
+      Aspiring
+      <br />
+      Web <span class="text-gradient">Developer</span>
+    </h1>
+
+    <p appReveal="up" [revealDelay]="200" class="mt-5 flex items-center text-lg text-muted">
+      <span>I build</span>
+      <span class="typewriter ms-2 font-semibold text-text">Angular UI</span>
+    </p>
+
+    <p appReveal="up" [revealDelay]="300" class="mt-5 max-w-lg leading-relaxed text-muted">
+      Hi, I'm <span class="font-semibold text-text">MEACH Sokhai</span> — a fourth-year Management Information Systems (MIS) student at SETEC Institute and aspiring Web Developer based in Phnom Penh. I build reliable, user-friendly applications with databases, REST APIs, and modern frontend frameworks.
+    </p>
+
+    <div appReveal="up" [revealDelay]="400" class="mt-8 flex flex-wrap items-center gap-4">
+      <a href="#project"
+        class="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110">
+        View Projects
+        <i class="bi bi-arrow-right transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true"></i>
+      </a>
+      <a href="assets/cv.pdf"
+        target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 rounded-xl border border-border bg-surface/50 px-6 py-3 font-semibold text-text backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary">
+        <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+        View CV
+      </a>
+      <a href="assets/cv.pdf" download
+        class="inline-flex items-center gap-2 rounded-xl border border-border bg-surface/50 px-6 py-3 font-semibold text-text backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary">
+        <i class="bi bi-download" aria-hidden="true"></i>
+        Download CV
+      </a>
+    </div>
+
+    <div appReveal="up" [revealDelay]="500" class="mt-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-muted">Find me on</p>
+      <div class="mt-3 flex items-center gap-3">
+        @for (s of socials; track s.label) {
+        <a [href]="s.url" [attr.aria-label]="s.label" target="_blank" rel="noopener noreferrer"
+          class="flex size-10 items-center justify-center rounded-xl border border-border bg-surface/50 text-muted backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
+          <i class="bi {{ s.icon }}" aria-hidden="true"></i>
+        </a>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: portrait -->
+  <div appReveal="zoom" [revealDelay]="250" class="relative mx-auto w-full max-w-[20rem] sm:max-w-sm lg:max-w-md">
+    <div class="absolute -inset-5 rounded-[2.75rem] bg-gradient-to-tr from-primary/30 via-secondary/20 to-accent/30 blur-2xl"
+      aria-hidden="true"></div>
+    <div class="absolute -inset-1 rounded-[2.25rem] bg-gradient-to-br from-primary via-secondary to-accent opacity-40"
+      aria-hidden="true"></div>
+
+    <div class="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-border bg-surface shadow-card">
+      <img src="assets/photo.jpg" alt="Portrait of Meach Sokhai" width="960" height="1280" fetchpriority="high"
+        class="size-full object-cover transition-transform duration-700 hover:scale-105" />
+    </div>
+
+    <div
+      class="absolute -right-2 top-8 rotate-6 rounded-2xl border border-border bg-surface/90 px-4 py-3 shadow-card backdrop-blur sm:-right-6">
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-primary">
+        <i class="bi bi-mortarboard-fill" aria-hidden="true"></i>
+        Fourth-Year
+      </p>
+      <p class="font-display text-xl font-bold text-text">MIS Student</p>
+    </div>
+
+    <div
+      class="absolute -left-2 bottom-10 -rotate-6 rounded-2xl border border-border bg-surface/90 px-4 py-3 shadow-card backdrop-blur sm:-left-6">
+      <p class="flex items-center gap-1.5 text-xs font-semibold text-primary">
+        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+        Location
+      </p>
+      <p class="text-sm font-semibold text-text">Phnom Penh, Cambodia</p>
+    </div>
+  </div>
+</section>

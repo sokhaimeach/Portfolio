@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './shapes.html',
   styleUrl: './shapes.css',
 })
-export class Shapes {
-
-}
+export class Shapes {}

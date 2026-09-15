@@ -1,0 +1,25 @@
+<footer class="relative border-t border-border/60 px-4 py-12 sm:px-6 lg:px-8">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
+    <a href="#home" class="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-text">
+      <span aria-hidden="true"
+        class="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-sm font-bold text-white shadow-glow">
+        S
+      </span>
+      sokhai.dev
+    </a>
+
+    <p class="text-center text-sm text-muted">
+      © {{ year }} sokhai.dev — Built with <span class="font-semibold text-primary">Angular</span> &
+      <span class="font-semibold text-primary">Tailwind CSS</span>
+    </p>
+
+    <div class="flex items-center gap-3">
+      @for (s of socials; track s.label) {
+      <a [href]="s.url" [attr.aria-label]="s.label" target="_blank" rel="noopener noreferrer"
+        class="flex size-9 items-center justify-center rounded-lg border border-border text-muted transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:text-primary">
+        <i class="bi {{ s.icon }}" aria-hidden="true"></i>
+      </a>
+      }
+    </div>
+  </div>
+</footer>
