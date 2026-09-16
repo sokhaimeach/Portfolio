@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Reveal } from '../../directives/reveal';
 import { SectionHeader } from '../section-header/section-header';
 import { CONTACT_INFO, SOCIALS } from '../../data';
+import { TelegramService } from '../../services/telegram.service';
 
 @Component({
   selector: 'app-contact',
@@ -23,7 +24,7 @@ export class Contact {
     { icon: 'bi-telephone-fill', label: 'Phone', value: CONTACT_INFO.phone },
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private telegramService: TelegramService) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -42,12 +43,21 @@ export class Contact {
     }
 
     const { name, email, message } = this.form.value;
-    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:${CONTACT_INFO.email}?subject=${subject}&body=${body}`;
+    // const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    // const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    // window.location.href = `mailto:${CONTACT_INFO.email}?subject=${subject}&body=${body}`;
 
-    this.sent.set(true);
-    this.form.reset();
-    setTimeout(() => this.sent.set(false), 6000);
+    console.log(`Portfolio contact from ${name} (${email}):\n\n${message}`);
+
+    this.telegramService.sendMessage(`Portfolio contact from ${name} (${email}):\n\n${message}`).subscribe({
+      next: () => {
+        this.sent.set(true);
+        this.form.reset();
+        setTimeout(() => this.sent.set(false), 6000);
+      },
+      error: (err) => {
+        console.error('Error sending message via Telegram:', err);
+      }
+    });
   }
 }
